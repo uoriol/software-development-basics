@@ -1,0 +1,124 @@
+﻿@page "/programming-concepts/threads-parallelism"
+
+<style>
+    .outer-box{
+        border: 1px solid grey;
+    }
+
+    .tasks-box{
+        display: flex;
+        flex-wrap: wrap;
+    }
+
+    .inner-box{
+        margin: 2em;
+        border: 1px solid grey;
+        padding: 1.5em;
+    }
+
+    .global-result-div {
+        text-align: center;
+    }
+
+    .success-msg-div {
+        color: lightgreen;
+        padding: 1em;
+        text-align: center;
+        border: 1px solid lightgreen;
+        width: 20em;
+        margin: 1em auto
+    }
+</style>
+
+<h3 class="programming-header">Running tasks in parallel</h3>
+
+<div class="div-app">
+    <p>This show different tasks that need to be executed. Click to run "tasks" which will run at random in an interval between 2 and 5 second.</p>
+    <p>When everything is done, a message will indicate so.</p>
+</div>
+
+<div style="text-align: center; margin: 2em; margin-top: 4em;">
+    <button class="button-app" @onclick="RunParallelProcess">Run in parallel</button>
+</div>
+
+
+<div class="outer-box">
+    <div class="tasks-box">
+        @foreach (var task in globalTask.asynchronousProcesses)
+        {
+            <div class="inner-box" style="color: @(task.HasFinished ? "lightgreen" : "lightcoral")">
+                @if (task.HasStarted)
+                {
+                    @if (task.HasFinished)
+                    {
+                        <span>Finished</span>
+                    }
+                    else
+                    {
+                        <span>Running...</span>
+                    }
+                }
+                else
+                {
+                    <span>Task</span>
+                }
+            </div>
+        }
+    </div>
+</div>
+
+<div style="text-align: center">
+    @if (globalTask.HasFinished)
+    {
+        <div class="success-msg-div">
+            All tasks finished!
+        </div>
+    }
+</div>
+
+
+@code {
+
+    public class GlobalTask {
+        public List<AsynchronousProcess> asynchronousProcesses { get; set; } = new List<AsynchronousProcess>();
+        public bool HasFinished => asynchronousProcesses.All(x => x.HasFinished);
+        public bool HasStarted => asynchronousProcesses.Any(x => x.HasStarted);
+
+        public GlobalTask(int tasksintances = 5){
+            for (int i = 0; i < tasksintances; i++)
+            {
+                asynchronousProcesses.Add(new AsynchronousProcess());
+            }
+        }
+    }
+
+    public class AsynchronousProcess
+    {
+        public bool HasStarted { get; set; } = false;
+        public bool HasFinished { get; set; } = false;
+    }
+
+    public GlobalTask globalTask = new GlobalTask(20);
+
+    private async Task RunParallelProcess()
+    {
+        globalTask = new GlobalTask(20);
+        await RunInParallel(globalTask);
+
+    }
+
+    private async Task RunInParallel(GlobalTask globalTask)
+    {
+        var random = new Random();
+        IEnumerable<Task> tasks = globalTask.asynchronousProcesses.Select(async task =>
+        {
+            task.HasStarted = true;
+            StateHasChanged(); // Update view when each task starts
+            await Task.Delay(random.Next(2000, 5000)); // Asynchronous wait
+            task.HasFinished = true;
+            StateHasChanged(); // Update view when each task finishes
+        });
+
+        await Task.WhenAll(tasks); // Wait for all tasks to complete
+    }
+}

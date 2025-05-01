@@ -1,0 +1,33 @@
+﻿@using Newtonsoft.Json
+@using SoftwareDevelopmentCenter.Shared.LeetCodeClasses.Interfaces
+
+@typeparam TInput
+@typeparam TOutput
+
+<div class="div-app">
+    <table>
+        <tr>
+            <th>Input</th>
+            <th>Output</th>
+        </tr>
+        @foreach (var problem in Problems)
+        {
+            <tr>
+                <td>@JsonConvert.SerializeObject(problem.Input)</td>
+                <td>@JsonConvert.SerializeObject(problem.Output)</td>
+            </tr>
+        }
+    </table>
+</div>
+
+<div class="div-app">
+    @foreach (var problem in Problems)
+    {
+        <span>Input @JsonConvert.SerializeObject(problem.Input) -> Output @JsonConvert.SerializeObject(problem.Output)</span>
+    }
+</div>
+
+@code {
+    [Parameter]
+    public List<ILeetCodeProblem<TInput, TOutput>> Problems { get; set; } = new List<ILeetCodeProblem<TInput, TOutput>>();
+}

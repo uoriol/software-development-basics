@@ -1,0 +1,42 @@
+﻿@using Microsoft.AspNetCore.Components.Authorization
+@using SoftwareDevelopmentCenter.Client.Components.Security
+@inherits LayoutComponentBase
+@inject NavigationManager navigation
+
+
+<div class="page">
+     <div class="sidebar">
+        <NavMenu />
+    </div> 
+
+    <main>
+        <div class="top-row px-4" style="display: flex; align-items: center; justify-content: space-between;">
+            <h3 @onclick="GoHome" class="top-row-margin-top" style="cursor: pointer">>sdc</h3>
+            <!-- Header items aligned to the right -->
+            <div class="header-right">
+                <AuthorizeView>
+                    <Authorized>
+                        <LogOut HeaderDisplay="true"></LogOut>
+                    </Authorized>
+                    <NotAuthorized>
+                        <LogIn HeaderDisplay="true"></LogIn>
+                    </NotAuthorized>
+                </AuthorizeView>
+
+                <a href="https://github.com/uoriol/software-development-center" target="_blank" class="icon-link">
+                    <img class="app-small-icon" src="/images/icons/github.png" alt="GitHub" />
+                </a>
+            </div>
+        </div>
+
+        <article class="content px-4">
+            @Body
+        </article>
+    </main>
+</div>
+
+@code {
+    private void GoHome(){
+        navigation.NavigateTo(navigation.BaseUri);
+    }
+}

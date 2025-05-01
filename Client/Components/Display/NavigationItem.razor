@@ -1,0 +1,42 @@
+﻿@using SoftwareDevelopmentCenter.Shared.EnumRepository
+@inject NavigationManager navigation
+
+<style>
+    .diff-tag {
+        padding: 0.3em;
+        font-size: 12px;
+        border-radius: 5px;
+    }
+</style>
+
+<div class="navigation-div">
+    <p>@Title</p>
+    @if(Difficulty != null){
+        <span class="diff-tag" style="@EnumRepository.GetDifficultyStyle((LeetCodeDifficulty)Difficulty)">@EnumRepository.GetDifficultyString((LeetCodeDifficulty)Difficulty)</span>
+    }
+    <p></p>
+    <button class="button-app" onclick="@(() => Navigate())">Go to resource</button>
+</div>
+
+
+@code {
+    [Parameter]
+    public string Title { get; set; } = string.Empty;
+
+    [Parameter]
+    public string NavigationUrl { get; set; } = string.Empty;
+
+    [Parameter]
+    public string IconImageUrl { get; set; } = string.Empty;
+
+    [Parameter]
+    public LeetCodeDifficulty? Difficulty { get; set; } = null;
+
+    private string IconsLocation = "/img/icons/";
+    private string FullIconImageUrl => IconImageUrl == string.Empty ? IconsLocation + "error-404.png" : "/img/icons/" + IconImageUrl;
+
+    private void Navigate()
+    {
+        navigation.NavigateTo(NavigationUrl, false);
+    }
+}

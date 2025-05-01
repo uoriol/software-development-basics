@@ -1,0 +1,21 @@
+﻿@using SoftwareDevelopmentCenter.Shared.Authorization.Classes
+@inject CustomAuthenticationStateProvider authProvider
+@inject NavigationManager navigation
+
+@if (HeaderDisplay)
+{
+    <button class="button-app top-button-app top-row-margin-top" @onclick="Login">Log in</button>
+}
+else
+{
+    <button class="button-app" @onclick="Login">Log in</button>
+}
+
+@code {
+    [Parameter]
+    public bool HeaderDisplay { get; set; } = false;
+    private async Task Login()
+    {
+        navigation.NavigateTo("/login");
+    }
+}

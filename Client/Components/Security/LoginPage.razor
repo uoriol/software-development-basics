@@ -1,0 +1,86 @@
+﻿@page "/login"
+@using Microsoft.AspNetCore.Components.Authorization
+@using Newtonsoft.Json
+@using SoftwareDevelopmentCenter.Shared.Authorization.Classes
+@using System.Net.Http.Headers
+@inject NavigationManager navigation
+@inject CustomAuthenticationStateProvider authProvider
+@inject HttpClient _http
+@inject IJSRuntime jsInterop
+
+
+@* <p>TODO:</p>
+<ul>
+    <li>Add as form</li>
+    <li>Log in form only displayed if the user is not logged in</li>
+    <li>Display logout option</li>
+</ul> *@
+
+
+<div class="div-app" style="text-align: center; width: 20vw; margin: auto; margin-top: 3em;">
+    <AuthorizeView>
+        <Authorized>
+            You are already logged in.
+        </Authorized>
+        <NotAuthorized>
+            <p style="margin-top: 1em;">User name:</p>
+            <p><input class="input-app" @bind="@InputUserName" placeholder="user_1, user_0..." /></p>
+
+            <p>Password:</p>
+            <p><input class="input-app" @bind="@InputUserPassword" placeholder="user1_123, user0_123..." /></p>
+
+            <button class="button-app" style="margin-top: 2em;" @onclick="@Authenticate">Log in</button>
+
+            @if (!String.IsNullOrEmpty(ErrorMessage))
+            {
+                <p style="color: red; margin-top: 1em">@ErrorMessage</p>
+            }
+        </NotAuthorized>
+    </AuthorizeView>
+</div>
+
+
+@code {
+    private string ErrorMessage = string.Empty;
+    private string InputUserName { get; set; } = string.Empty;
+    private string InputUserPassword { get; set; } = string.Empty;
+    private List<User> ExistingUsersRepository = new List<User>
+    {
+        new User("User 1", "user_1", "user1_123"),
+        new User("User 0", "user_0", "user0_123", SecurityRoleEnum.ADMINISTRATOR)
+    };
+
+    private async Task Authenticate()
+    {
+        ErrorMessage = string.Empty;
+        StateHasChanged();
+
+        var response = await _http.PostAsJsonAsync("Auth/login", new LoginParams(InputUserName, InputUserPassword));
+        if(response.StatusCode == System.Net.HttpStatusCode.Unauthorized)
+        {
+            // Display error message
+            ErrorMessage = "Unable to log you in";
+            return;
+        }
+        var token = await response.Content.ReadAsStringAsync();
+        await jsInterop.InvokeVoidAsync("localStorage.setItem", "authToken", token);
+        // Set the token in the authentication header for future requests
+        _http.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", token);
+        await authProvider.MarkUserAsAuthenticated(token);
+        navigation.NavigateTo("/login-success");
+    }
+    private async Task Authenticate_cookies()
+    {
+        ErrorMessage = string.Empty;
+        StateHasChanged();
+        User? user = ExistingUsersRepository.Where(x => x.UserName == InputUserName).FirstOrDefault();
+        if (user == null || user.Password != InputUserPassword)
+        {
+            // Display error message
+            ErrorMessage = "Unable to log you in";
+            return;
+        }
+
+        navigation.NavigateTo("/login-success");
+    }
+}

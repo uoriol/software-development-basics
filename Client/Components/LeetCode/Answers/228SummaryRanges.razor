@@ -1,0 +1,186 @@
+﻿@page "/leet-code/228"
+@using Newtonsoft.Json
+@using SoftwareDevelopmentCenter.Client.Components.LeetCode.LeetCodeComponents
+@using SoftwareDevelopmentCenter.Shared.LeetCodeClasses.Classes
+@using SoftwareDevelopmentCenter.Shared.LeetCodeClasses.Interfaces
+
+@inject IJSRuntime JSRuntime
+
+<div class="leetcode-div">
+    @* Title *@
+    <h3 class="leetcode-header">228. Summary Ranges</h3>
+
+    @* Description *@
+    <div class="div-app">
+        <p>You are given a sorted unique integer array nums.</p>
+
+        <p>A range [a,b] is the set of all integers from a to b (inclusive).</p>
+
+        <p>Return the smallest sorted list of ranges that cover all the numbers in the array exactly. That is, each element of nums is covered by exactly one of the ranges, and there is no integer x such that x is in one of the ranges but not in nums.</p>
+
+        <p>Each range [a,b] in the list should be output as:</p>
+
+        <p>"a->b" if a != b</p>
+        <p>"a" if a == b</p>
+    </div>
+
+    @* Code snippet *@
+    <div>
+        <pre>
+        <code class="language-csharp">
+            public class Solution {
+                public IList&lt;string&gt; SummaryRanges(int[] nums) {
+                    var output = new List&lt;string&gt;();
+                    if (nums.Length == 0)
+                    {
+                        return output.ToArray();
+                    }
+                    int? firstNumber = null;
+                    for (int i = 0; i &lt; nums.Length; i++)
+                    {
+                        if (firstNumber == null)
+                        {
+                            firstNumber = nums[i];
+                        }
+
+                        // Check if next number is one more and is not last number
+                        if (!(i == (nums.Length - 1)) &amp;&amp; nums[i + 1] - 1 == nums[i])
+                        {
+                            continue;
+                        }
+
+                        if (firstNumber == nums[i])
+                        {
+                            output.Add(nums[i].ToString());
+                        }
+                        else
+                        {
+                            output.Add(firstNumber.ToString() + "->" + nums[i].ToString());
+                        }
+                        firstNumber = null;
+                    }
+                    return output.ToArray();
+                }
+            }
+        </code>
+    </pre>
+    </div>
+
+    @*Examples*@
+
+    <button class="button-app" @onclick="RunSimulation">Run Problem Set</button>
+    <LeetCodeProblemSetTable TInput="int[]" TOutput="string[]" Problems="problemSet.Problems"/>
+</div>
+
+
+@code {
+    protected override async Task OnAfterRenderAsync(bool firstRender)
+    {
+        if (firstRender)
+        {
+            await JSRuntime.InvokeVoidAsync("Prism.highlightAll");
+        }
+    }
+
+    LeetCodeProblemSet<int[], string[]> problemSet = new LeetCodeProblemSet<int[], string[]>();
+
+    public void RunSimulation(){
+        problemSet = new LeetCodeProblemSet<int[], string[]>();
+        for(int i = 0; i < 20; i++)
+        {
+            problemSet.Problems.Add(new SummaryRange());
+        }
+        StateHasChanged();
+    }
+
+    public class SummaryRange : LeetCodeProblemBase<int[], string[]>
+    {
+        public override int[] GenerateInputs()
+        {
+            var randomizer = new Random();
+            var nValues = randomizer.Next(0, 20);
+            if(nValues == 0){
+                return new int[] { };
+            }
+            var inputs = new List<int> { randomizer.Next(0,3) };
+            for(int i = 1; i < nValues; i++)
+            {
+                // We set the probability to be the immediate next integer at 70%
+                if(randomizer.NextDouble() <= 0.7)
+                {
+                    inputs.Add(inputs[i - 1] + 1);
+                    continue;
+                }
+                inputs.Add(randomizer.Next(inputs[i - 1] + 2, inputs[i - 1] + 4));
+            }
+            return inputs.ToArray();
+        }
+        public override string[] Solve(int[] nums)
+        {
+            var output = new List<string>();
+            if (nums.Length == 0)
+            {
+                return output.ToArray();
+            }
+            int? firstNumber = null;
+            for (int i = 0; i < nums.Length; i++)
+            {
+                if (firstNumber == null)
+                {
+                    firstNumber = nums[i];
+                }
+
+                // Check if next number is one more and is not last number
+                if (!(i == (nums.Length - 1)) && nums[i + 1] - 1 == nums[i])
+                {
+                    continue;
+                }
+
+                if (firstNumber == nums[i])
+                {
+                    output.Add(nums[i].ToString());
+                }
+                else
+                {
+                    output.Add(firstNumber.ToString() + "->" + nums[i].ToString());
+                }
+                firstNumber = null;
+            }
+            return output.ToArray();
+        }
+    }
+
+    public IList<string> SummaryRanges(int[] nums)
+    {
+        var output = new List<string>();
+        if (nums.Length == 0)
+        {
+            return output.ToArray();
+        }
+        int? firstNumber = null;
+        for (int i = 0; i < nums.Length; i++)
+        {
+            if (firstNumber == null)
+            {
+                firstNumber = nums[i];
+            }
+
+            // Check if next number is one more and is not last number
+            if (!(i == (nums.Length - 1)) && nums[i + 1] - 1 == nums[i])
+            {
+                continue;
+            }
+
+            if (firstNumber == nums[i])
+            {
+                output.Add(nums[i].ToString());
+            }
+            else
+            {
+                output.Add(firstNumber.ToString() + "->" + nums[i].ToString());
+            }
+            firstNumber = null;
+        }
+        return output.ToArray();
+    }
+}

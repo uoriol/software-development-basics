@@ -1,0 +1,56 @@
+﻿@page "/login-success"
+@using Newtonsoft.Json
+@using Microsoft.AspNetCore.Components.Authorization
+@using SoftwareDevelopmentCenter.Shared.Authorization.Classes
+@inject CustomAuthenticationStateProvider authProvider
+@inject NavigationManager navigation
+
+<AuthorizeView>
+    <Authorized>
+        <div class="row">
+            <div class="col-2 div-app" style="text-align: center">
+                <p>You are correctly logged in.</p>
+                <div style="text-align: center; margin-top: 2em; margin-bottom: 1em"><LogOut/></div>
+                <button class="button-app" style="margin-top:3em" @onclick="GoToHttpLogger">Test your access</button>
+            </div>
+            <div class="col-4 div-app" style="margin-left: 1em; text-align: left; word-wrap: break-word; word-break: break-word;">
+                <p>@AuthenticationState</p>
+            </div>
+            <div class="col-4 div-app" style="margin-left: 1em; word-wrap: break-word; word-break: break-word;">
+                <p>This is the token (JWT):</p>
+                <p>@Token</p>
+            </div>
+        </div>
+    </Authorized>
+    <NotAuthorized>
+        <p>You are not authorized to view this content.</p>
+    </NotAuthorized>
+</AuthorizeView>
+
+@code {
+    private string AuthenticationState { get; set; } = string.Empty;
+    private string Token { get; set; } = string.Empty;
+    protected override async Task OnInitializedAsync()
+    {
+        var authState = await authProvider.GetAuthenticationStateAsync();
+        var user = authState.User;
+        if(user != null)
+        {
+            var authStateDict = new
+            {
+                IsAuthenticated = user.Identity.IsAuthenticated,
+                Name = user.Identity.Name,
+                Claims = user.Claims.Select(c => new { c.Type, c.Value })
+            };
+            Token = await authProvider.GetToken();
+            AuthenticationState = JsonConvert.SerializeObject(authStateDict);
+            await Task.Yield();
+            StateHasChanged();
+        }
+    }
+
+    private void GoToHttpLogger()
+    {
+        navigation.NavigateTo("security/http-logger-security", false);
+    }
+}

@@ -1,0 +1,11 @@
+﻿@page "/"
+@using Microsoft.AspNetCore.Components.Authorization
+@using SoftwareDevelopmentCenter.Client.Components.Display
+
+<PageTitle>Development Center</PageTitle>
+
+<div style="display: flex; flex-wrap: wrap">
+    <MainNavigationItem Title="Leet Code Problems" Explanation="List of solved LeetCode problems with explanations" NavigationUrl="leet-code"/>
+    <MainNavigationItem Title="Programming concepts" Explanation="Programming definitions with examples" NavigationUrl="programming-concepts" />
+    <MainNavigationItem Title="Security and Authentication" Explanation="Basic concepts and Blazor identity handling" NavigationUrl="security" />
+</div>

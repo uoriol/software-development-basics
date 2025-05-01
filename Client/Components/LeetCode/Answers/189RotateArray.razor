@@ -1,0 +1,124 @@
+﻿@page "/leet-code/189"
+@using Newtonsoft.Json
+@using SoftwareDevelopmentCenter.Client.Components.LeetCode.LeetCodeComponents
+@using SoftwareDevelopmentCenter.Shared.LeetCodeClasses.Classes
+@using SoftwareDevelopmentCenter.Shared.LeetCodeClasses.Interfaces
+
+@inject IJSRuntime JSRuntime
+
+<div class="leetcode-div">
+    @* Title *@
+    <h3 class="leetcode-header">189. Rotate Array</h3>
+
+    @* Description *@
+    <div class="div-app">
+        <p>Given an integer array nums, rotate the array to the right by k steps, where k is non-negative.</p>
+    </div>
+
+    @* Code snippet *@
+    <div>
+        <pre>
+        <code class="language-csharp">
+            public class Solution {
+                public void Rotate(int[] nums, int k) {
+                    if (k &gt; nums.Length)
+                    {
+                        // e.g. [1,2,3,4,5], k = 6 --&gt; k = should be just 1
+                        k = k % nums.Length;
+                    }
+                    var placeholder = nums.TakeLast(k).Concat(nums.Take(nums.Count() - k)).ToArray();
+                    // Copy the elements from the placeholder back to the original array
+                    for (int i = 0; i &lt; nums.Length; i++) {
+                        nums[i] = placeholder[i];
+                    }
+                }
+            }
+        </code>
+    </pre>
+    </div>
+
+    @*Examples*@
+
+    <button class="button-app" @onclick="RunSimulation">Run Problem Set</button>
+    <LeetCodeProblemSetTable TInput="RotateArrayObject" TOutput="RotateArrayObject" Problems="problemSet.Problems" />
+</div>
+
+
+@code {
+    protected override async Task OnAfterRenderAsync(bool firstRender)
+    {
+        if (firstRender)
+        {
+            await JSRuntime.InvokeVoidAsync("Prism.highlightAll");
+        }
+    }
+
+    LeetCodeProblemSet<RotateArrayObject, RotateArrayObject> problemSet = new LeetCodeProblemSet<RotateArrayObject, RotateArrayObject>();
+
+    public void RunSimulation()
+    {
+        problemSet = new LeetCodeProblemSet<RotateArrayObject, RotateArrayObject>();
+        for (int i = 0; i < 20; i++)
+        {
+            problemSet.Problems.Add(new RotateArray());
+        }
+        StateHasChanged();
+    }
+
+    public class RotateArrayObject
+    {
+        public int[] nums { get; set; }
+        public int k { get; set; }
+
+        public RotateArrayObject Clone()
+        {
+            return new RotateArrayObject
+            {
+                nums = (int[])this.nums.Clone(),
+                k = this.k
+            };
+        }
+    }
+
+    public class RotateArray : LeetCodeProblemBase<RotateArrayObject, RotateArrayObject>
+    {
+        public override RotateArrayObject GenerateInputs()
+        {
+            var randomizer = new Random();
+            var nValues = randomizer.Next(4, 12);
+            var inputs = new List<int> { randomizer.Next(-100, 100) };
+            for (int i = 1; i < nValues; i++)
+            {
+                // We set the probability to be the immediate next integer at 70%
+                if (randomizer.NextDouble() <= 0.7)
+                {
+                    inputs.Add(inputs[i - 1] + 1);
+                    continue;
+                }
+                inputs.Add(randomizer.Next(-100, 100));
+            }
+            return new RotateArrayObject
+            {
+                nums = inputs.ToArray(),
+                k = randomizer.Next(0, 20)
+            };
+        }
+        public override RotateArrayObject Solve(RotateArrayObject rObj)
+        {
+            // Clone input to avoid modifying the inputs
+            var output = rObj.Clone();
+            if (rObj.k > rObj.nums.Length)
+            {
+                // e.g. [1,2,3,4,5], k = 6 ---> k = should be just 1
+                rObj.k = rObj.k % rObj.nums.Length;
+            }
+            var placeholder = rObj.nums.TakeLast(rObj.k).Concat(rObj.nums.Take(rObj.nums.Count() - rObj.k)).ToArray();
+            // Copy the elements from the placeholder back to the original array
+            for (int i = 0; i < rObj.nums.Length; i++)
+            {
+                rObj.nums[i] = placeholder[i];
+            }
+            return output;
+        }
+    }
+}

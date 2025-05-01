@@ -1,0 +1,17 @@
+﻿@inject NavigationManager navigation
+
+<button onclick="@(() => Navigate())" class="round-button"><img class="img-round-button" src="/images/icons/play.svg" /></button>
+
+@code {
+    [Parameter]
+    public string NavigationUrl { get; set; } = string.Empty;
+    private void GoTo()
+    {
+        
+    }
+
+    private void Navigate()
+    {
+        navigation.NavigateTo(NavigationUrl, false);
+    }
+}

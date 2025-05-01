@@ -1,0 +1,55 @@
+﻿.navigation-div {
+    padding: 1em;
+    margin: 2em;
+    border: 1px solid grey;
+    width: 10em;
+}
+
+.main-navigation-div {
+    margin: 3em;
+    text-align: center;
+    border-radius: 10px;
+    -webkit-box-shadow: 10px 10px 29px 0px rgba(0,0,0,0.75);
+    -moz-box-shadow: 10px 10px 29px 0px rgba(0,0,0,0.75);
+    /*box-shadow: 10px 10px 29px 0px rgba(214,214,214,0.30);*/
+    /*box-shadow: 10px 10px 29px 0px rgba(162,220,167,0.0);*/
+    box-shadow: 10px 10px 29px 0px rgba(0,0,0,0.75);
+    border: 1px solid grey;
+    width: 15vw;
+    min-width: 250px;
+    max-width: 270px;
+}
+
+.main-navigation-header {
+    padding: 2em;
+    border-radius: 10px 10px 0px 0px;
+    border-bottom: 1px solid #f1f1f1;
+}
+
+.main-navigation-header:hover {
+    background: lightgrey;
+    color: black;
+}
+
+.main-navigation-body {
+    padding: 2em;
+}
+
+.round-button {
+    height: 60px;
+    width: 60px;
+    border-radius: 50%;
+    background: lightgrey;
+    border: 5px solid lightgrey;
+    margin-bottom: 1.5em;
+}
+
+    .round-button:hover {
+        background: #fafafa;
+        border: 5px solid white;
+    }
+
+.img-round-button {
+    height: 1.4em;
+    margin-left: 4px;
+}

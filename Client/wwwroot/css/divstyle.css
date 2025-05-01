@@ -1,0 +1,50 @@
+﻿
+.notebook-div {
+    background-image: url('../images/img/notebook.jpg');
+    padding: 3em;
+    color: #404040;
+    background-color: #f9f9f9; /* Light background color for a paper-like feel */
+    background-image: linear-gradient(to right, rgba(0, 0, 0, 0.1) 1px, transparent 1px), /* Vertical lines */
+    linear-gradient(to bottom, rgba(0, 0, 0, 0.1) 1px, transparent 1px); /* Horizontal lines */
+    background-size: 30px 30px; /* Set the spacing for the lines */
+    border: 1px solid lightgrey;
+    border-radius: 5px;
+    -webkit-box-shadow: inset 0px 0px 16px -3px rgba(0,0,0,0.75);
+    -moz-box-shadow: inset 0px 0px 16px -3px rgba(0,0,0,0.75);
+    box-shadow: inset 0px 0px 16px -3px rgba(0,0,0,0.75);
+}
+
+.leetcode-div {
+    margin-left: 20vw;
+    margin-right: 20vw;
+    margin-bottom: 3em;
+}
+
+.leetcode-header {
+    margin: 1em;
+    text-align: center;
+    border-bottom: 1px solid grey;
+    padding-bottom: 0.2em;
+    color: lightgreen;
+    margin-left: 20vw;
+    margin-right: 20vw;
+}
+
+.programming-header {
+    border-bottom: 1px solid grey;
+    padding-bottom: 0.2em;
+    color: lightgreen;
+    text-align: left;
+    margin: 1em 0em;
+}
+
+.programming-div {
+    color: #abb2bf;
+    background: #282c34;
+    padding: 3em;
+
+}
+
+    .programming-div p {
+        margin: 2px 0; /* Adjust the values to control the spacing */
+    }

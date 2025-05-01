@@ -1,0 +1,64 @@
+﻿@using SoftwareDevelopmentCenter.Shared.Authorization.Classes
+@using Microsoft.AspNetCore.Components.Authorization
+@inject CustomAuthenticationStateProvider authProvider
+@inject NavigationManager navigation
+@inject IJSRuntime jsInterop
+
+@if (HeaderDisplay)
+{
+    <img class="app-small-icon" id="userImg" src="/images/icons/user.png" alt="User" @onclick="toggleDropdown"/>
+} else
+{
+    <button class="button-app" @onclick="Logout">Log out</button>
+}
+
+@if (isDropDownVisible){
+    <div class="dropdown" id="dropdown" style="top: 3.2rem; right: 40px;">
+        <AuthorizeView>
+            <Authorized>
+                <p style="border-bottom: 1px solid">@context.User.Identity?.Name</p>
+            </Authorized>
+        </AuthorizeView>
+        <div class="dropdown-ul-li">Settings</div>
+        <div class="dropdown-ul-li">Profile</div>
+        <div class="dropdown-ul-li" @onclick="Logout">Logout</div>
+    </div>
+}
+
+@code {
+    [Parameter]
+    public bool HeaderDisplay { get; set; } = false;
+
+    private bool isDropDownVisible = false;
+
+    private async Task Logout()
+    {
+        isDropDownVisible = false;
+        StateHasChanged(); // Ensure UI is updated
+        await authProvider.MarkUserAsLoggedOut();
+        navigation.NavigateTo("/login");
+    }
+
+    private async Task toggleDropdown()
+    {
+        isDropDownVisible = !isDropDownVisible;
+        if (isDropDownVisible)
+        {
+            // Create a .NET object reference for calling back into Blazor from JavaScript
+            var dotNetObjectReference = DotNetObjectReference.Create(this);
+            await jsInterop.InvokeVoidAsync("setupClickOutsideListener", "dropdown", dotNetObjectReference);
+        }
+        // if (isDropDownVisible)
+        // {
+        //     // Call JavaScript to position the dropdown
+        //     await jsInterop.InvokeVoidAsync("positionDropdownUnderUserImg");
+        // }
+    }
+
+    [JSInvokable]
+    public void HideDropdown()
+    {
+        isDropDownVisible = false;
+        StateHasChanged();
+    }
+}

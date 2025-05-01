@@ -1,0 +1,963 @@
+{
+  "settings": {
+    "components": {
+      "code": true,
+      "binaries": true
+    },
+    "targetId": "",
+    "targetDisplayName": ".NET 8.0"
+  },
+  "analysisStartTime": "2024-11-09T20:14:09.9413125Z",
+  "analysisEndTime": "2024-11-09T20:14:11.3447017Z",
+  "privacyModeHelpUrl": "https://go.microsoft.com/fwlink/?linkid=2270980",
+  "stats": {
+    "summary": {
+      "projects": 3,
+      "issues": 3,
+      "incidents": 34,
+      "effort": 34
+    },
+    "charts": {
+      "severity": {
+        "Mandatory": 3,
+        "Optional": 0,
+        "Potential": 31,
+        "Information": 0
+      },
+      "category": {
+        "Project": 3,
+        "NuGet": 3,
+        "Api": 28
+      }
+    }
+  },
+  "projects": [
+    {
+      "path": "Client\\SoftwareDevelopmentCenter.Client.csproj",
+      "startingProject": true,
+      "issues": 3,
+      "storyPoints": 27,
+      "ruleInstances": [
+        {
+          "incidentId": "7c3543c4-5032-40e9-a43d-13e8bf9adb4b",
+          "ruleId": "NuGet.0002",
+          "projectPath": "Client\\SoftwareDevelopmentCenter.Client.csproj",
+          "state": "Active",
+          "location": {
+            "snippetModel": {
+              "unrestricted": "Microsoft.AspNetCore.Components.WebAssembly, 6.0.33\n\nRecommendation:\n\nMicrosoft.AspNetCore.Components.WebAssembly 8.0.10",
+              "protected": "Microsoft.AspNetCore.Components.WebAssembly, 6.0.33\n\nRecommendation:\n\nMicrosoft.AspNetCore.Components.WebAssembly 8.0.10"
+            },
+            "kind": "File",
+            "path": "Client\\SoftwareDevelopmentCenter.Client.csproj",
+            "snippet": "Microsoft.AspNetCore.Components.WebAssembly, 6.0.33\n\nRecommendation:\n\nMicrosoft.AspNetCore.Components.WebAssembly 8.0.10",
+            "protectedSnippet": "Microsoft.AspNetCore.Components.WebAssembly, 6.0.33\n\nRecommendation:\n\nMicrosoft.AspNetCore.Components.WebAssembly 8.0.10",
+            "label": "Microsoft.AspNetCore.Components.WebAssembly 6.0.33"
+          }
+        },
+        {
+          "incidentId": "427fd1ca-4419-475b-9092-3f8aff24a798",
+          "ruleId": "NuGet.0002",
+          "projectPath": "Client\\SoftwareDevelopmentCenter.Client.csproj",
+          "state": "Active",
+          "location": {
+            "snippetModel": {
+              "unrestricted": "Microsoft.AspNetCore.Components.WebAssembly.DevServer, 6.0.33\n\nRecommendation:\n\nMicrosoft.AspNetCore.Components.WebAssembly.DevServer 8.0.10",
+              "protected": "Microsoft.AspNetCore.Components.WebAssembly.DevServer, 6.0.33\n\nRecommendation:\n\nMicrosoft.AspNetCore.Components.WebAssembly.DevServer 8.0.10"
+            },
+            "kind": "File",
+            "path": "Client\\SoftwareDevelopmentCenter.Client.csproj",
+            "snippet": "Microsoft.AspNetCore.Components.WebAssembly.DevServer, 6.0.33\n\nRecommendation:\n\nMicrosoft.AspNetCore.Components.WebAssembly.DevServer 8.0.10",
+            "protectedSnippet": "Microsoft.AspNetCore.Components.WebAssembly.DevServer, 6.0.33\n\nRecommendation:\n\nMicrosoft.AspNetCore.Components.WebAssembly.DevServer 8.0.10",
+            "label": "Microsoft.AspNetCore.Components.WebAssembly.DevServer 6.0.33"
+          }
+        },
+        {
+          "incidentId": "130af74b-b4ab-469f-b092-f69ce24aed6d",
+          "ruleId": "Project.0002",
+          "projectPath": "Client\\SoftwareDevelopmentCenter.Client.csproj",
+          "state": "Active",
+          "location": {
+            "snippetModel": {
+              "unrestricted": "Current: net6.0\nNew: net8.0",
+              "protected": "Current: net6.0\nNew: net8.0"
+            },
+            "kind": "File",
+            "path": "Client\\SoftwareDevelopmentCenter.Client.csproj",
+            "snippet": "Current: net6.0\nNew: net8.0",
+            "protectedSnippet": "Current: net6.0\nNew: net8.0"
+          }
+        },
+        {
+          "incidentId": "9c8cbafa-7228-4aab-886e-85f20dcc3212",
+          "ruleId": "Api.0002",
+          "description": "API is available in package Microsoft.AspNetCore.Components.WebAssembly, 8.0.6.",
+          "projectPath": "Client\\SoftwareDevelopmentCenter.Client.csproj",
+          "state": "Active",
+          "location": {
+            "snippetModel": {
+              "unrestricted": "builder.RootComponents.Add\u003CHeadOutlet\u003E(\u0022head::after\u0022);",
+              "protected": "P:Microsoft.AspNetCore.Components.WebAssembly.Hosting.WebAssemblyHostBuilder.RootComponents"
+            },
+            "kind": "File",
+            "path": "Client\\Program.cs",
+            "snippet": "builder.RootComponents.Add\u003CHeadOutlet\u003E(\u0022head::after\u0022);",
+            "protectedSnippet": "P:Microsoft.AspNetCore.Components.WebAssembly.Hosting.WebAssemblyHostBuilder.RootComponents",
+            "label": "P:Microsoft.AspNetCore.Components.WebAssembly.Hosting.WebAssemblyHostBuilder.RootComponents",
+            "links": [
+              {
+                "title": "API documentation",
+                "url": "https://learn.microsoft.com/dotnet/api/microsoft.aspnetcore.components.webassembly.hosting.webassemblyhostbuilder.rootcomponents",
+                "isCustom": false
+              }
+            ],
+            "line": 6,
+            "column": 0
+          }
+        },
+        {
+          "incidentId": "c21d9cbc-4c70-49d2-825d-1d6012cb25a0",
+          "ruleId": "Api.0002",
+          "description": "API is available in package Microsoft.AspNetCore.Components.WebAssembly, 8.0.6.",
+          "projectPath": "Client\\SoftwareDevelopmentCenter.Client.csproj",
+          "state": "Active",
+          "location": {
+            "snippetModel": {
+              "unrestricted": "var builder = WebAssemblyHostBuilder.CreateDefault(args);",
+              "protected": "M:Microsoft.AspNetCore.Components.WebAssembly.Hosting.WebAssemblyHostBuilder.CreateDefault(System.String[])"
+            },
+            "kind": "File",
+            "path": "Client\\Program.cs",
+            "snippet": "var builder = WebAssemblyHostBuilder.CreateDefault(args);",
+            "protectedSnippet": "M:Microsoft.AspNetCore.Components.WebAssembly.Hosting.WebAssemblyHostBuilder.CreateDefault(System.String[])",
+            "label": "M:Microsoft.AspNetCore.Components.WebAssembly.Hosting.WebAssemblyHostBuilder.CreateDefault(System.String[])",
+            "links": [
+              {
+                "title": "API documentation",
+                "url": "https://learn.microsoft.com/dotnet/api/microsoft.aspnetcore.components.webassembly.hosting.webassemblyhostbuilder.createdefault",
+                "isCustom": false
+              }
+            ],
+            "line": 4,
+            "column": 0
+          }
+        },
+        {
+          "incidentId": "73e8ddd0-f084-458c-86ee-3cbb9b297d86",
+          "ruleId": "Api.0002",
+          "description": "API is available in package Microsoft.AspNetCore.Components.WebAssembly, 8.0.6.",
+          "projectPath": "Client\\SoftwareDevelopmentCenter.Client.csproj",
+          "state": "Active",
+          "location": {
+            "snippetModel": {
+              "unrestricted": "builder.Services.AddScoped(sp =\u003E new HttpClient { BaseAddress = new Uri(builder.HostEnvironment.BaseAddress) });",
+              "protected": "P:Microsoft.AspNetCore.Components.WebAssembly.Hosting.WebAssemblyHostBuilder.Services"
+            },
+            "kind": "File",
+            "path": "Client\\Program.cs",
+            "snippet": "builder.Services.AddScoped(sp =\u003E new HttpClient { BaseAddress = new Uri(builder.HostEnvironment.BaseAddress) });",
+            "protectedSnippet": "P:Microsoft.AspNetCore.Components.WebAssembly.Hosting.WebAssemblyHostBuilder.Services",
+            "label": "P:Microsoft.AspNetCore.Components.WebAssembly.Hosting.WebAssemblyHostBuilder.Services",
+            "links": [
+              {
+                "title": "API documentation",
+                "url": "https://learn.microsoft.com/dotnet/api/microsoft.aspnetcore.components.webassembly.hosting.webassemblyhostbuilder.services",
+                "isCustom": false
+              }
+            ],
+            "line": 8,
+            "column": 0
+          }
+        },
+        {
+          "incidentId": "d6acfd58-283b-4ea4-9dcf-8b71951b9f3f",
+          "ruleId": "Api.0002",
+          "description": "API is available in package Microsoft.AspNetCore.Components.WebAssembly, 8.0.6.",
+          "projectPath": "Client\\SoftwareDevelopmentCenter.Client.csproj",
+          "state": "Active",
+          "location": {
+            "snippetModel": {
+              "unrestricted": "builder.RootComponents.Add\u003CApp\u003E(\u0022#app\u0022);",
+              "protected": "T:Microsoft.AspNetCore.Components.WebAssembly.Hosting.RootComponentMappingCollection"
+            },
+            "kind": "File",
+            "path": "Client\\Program.cs",
+            "snippet": "builder.RootComponents.Add\u003CApp\u003E(\u0022#app\u0022);",
+            "protectedSnippet": "T:Microsoft.AspNetCore.Components.WebAssembly.Hosting.RootComponentMappingCollection",
+            "label": "T:Microsoft.AspNetCore.Components.WebAssembly.Hosting.RootComponentMappingCollection",
+            "links": [
+              {
+                "title": "API documentation",
+                "url": "https://learn.microsoft.com/dotnet/api/microsoft.aspnetcore.components.webassembly.hosting.rootcomponentmappingcollection",
+                "isCustom": false
+              }
+            ],
+            "line": 5,
+            "column": 0
+          }
+        },
+        {
+          "incidentId": "375f5205-9ed2-4cf4-8287-992a3a8a7180",
+          "ruleId": "Api.0002",
+          "description": "API is available in package Microsoft.AspNetCore.Components.WebAssembly, 8.0.6.",
+          "projectPath": "Client\\SoftwareDevelopmentCenter.Client.csproj",
+          "state": "Active",
+          "location": {
+            "snippetModel": {
+              "unrestricted": "var builder = WebAssemblyHostBuilder.CreateDefault(args);",
+              "protected": "T:Microsoft.AspNetCore.Components.WebAssembly.Hosting.WebAssemblyHostBuilder"
+            },
+            "kind": "File",
+            "path": "Client\\Program.cs",
+            "snippet": "var builder = WebAssemblyHostBuilder.CreateDefault(args);",
+            "protectedSnippet": "T:Microsoft.AspNetCore.Components.WebAssembly.Hosting.WebAssemblyHostBuilder",
+            "label": "T:Microsoft.AspNetCore.Components.WebAssembly.Hosting.WebAssemblyHostBuilder",
+            "links": [
+              {
+                "title": "API documentation",
+                "url": "https://learn.microsoft.com/dotnet/api/microsoft.aspnetcore.components.webassembly.hosting.webassemblyhostbuilder",
+                "isCustom": false
+              }
+            ],
+            "line": 4,
+            "column": 0
+          }
+        },
+        {
+          "incidentId": "cecea5a0-335e-4924-bde3-e37feb7f3b5e",
+          "ruleId": "Api.0002",
+          "description": "API is available in package Newtonsoft.Json, 13.0.3.",
+          "projectPath": "Client\\SoftwareDevelopmentCenter.Client.csproj",
+          "state": "Active",
+          "location": {
+            "snippetModel": {
+              "unrestricted": "__o = JsonConvert.SerializeObject(problem.Input);",
+              "protected": "M:Newtonsoft.Json.JsonConvert.SerializeObject(System.Object)"
+            },
+            "kind": "File",
+            "path": "Client\\Components\\LeetCode\\LeetCodeComponents\\LeetCodeProblemSetTable.razor.-f8WNYiu6J7Hsjsi.ide.g.cs",
+            "snippet": "__o = JsonConvert.SerializeObject(problem.Input);",
+            "protectedSnippet": "M:Newtonsoft.Json.JsonConvert.SerializeObject(System.Object)",
+            "label": "M:Newtonsoft.Json.JsonConvert.SerializeObject(System.Object)",
+            "links": [
+              {
+                "title": "API documentation",
+                "url": "https://learn.microsoft.com/dotnet/api/newtonsoft.json.jsonconvert.serializeobject",
+                "isCustom": false
+              }
+            ],
+            "line": 119,
+            "column": 15
+          }
+        },
+        {
+          "incidentId": "4a192bc6-aa0d-457a-9039-dfab231b59e1",
+          "ruleId": "Api.0002",
+          "description": "API is available in package Microsoft.AspNetCore.Components.WebAssembly, 8.0.6.",
+          "projectPath": "Client\\SoftwareDevelopmentCenter.Client.csproj",
+          "state": "Active",
+          "location": {
+            "snippetModel": {
+              "unrestricted": "builder.Services.AddScoped(sp =\u003E new HttpClient { BaseAddress = new Uri(builder.HostEnvironment.BaseAddress) });",
+              "protected": "P:Microsoft.AspNetCore.Components.WebAssembly.Hosting.WebAssemblyHostBuilder.HostEnvironment"
+            },
+            "kind": "File",
+            "path": "Client\\Program.cs",
+            "snippet": "builder.Services.AddScoped(sp =\u003E new HttpClient { BaseAddress = new Uri(builder.HostEnvironment.BaseAddress) });",
+            "protectedSnippet": "P:Microsoft.AspNetCore.Components.WebAssembly.Hosting.WebAssemblyHostBuilder.HostEnvironment",
+            "label": "P:Microsoft.AspNetCore.Components.WebAssembly.Hosting.WebAssemblyHostBuilder.HostEnvironment",
+            "links": [
+              {
+                "title": "API documentation",
+                "url": "https://learn.microsoft.com/dotnet/api/microsoft.aspnetcore.components.webassembly.hosting.webassemblyhostbuilder.hostenvironment",
+                "isCustom": false
+              }
+            ],
+            "line": 8,
+            "column": 0
+          }
+        },
+        {
+          "incidentId": "9e002a67-af94-4d2e-807a-218bc75987cc",
+          "ruleId": "Api.0002",
+          "description": "API is available in package Microsoft.AspNetCore.Components.WebAssembly, 8.0.6.",
+          "projectPath": "Client\\SoftwareDevelopmentCenter.Client.csproj",
+          "state": "Active",
+          "location": {
+            "snippetModel": {
+              "unrestricted": "builder.RootComponents.Add\u003CApp\u003E(\u0022#app\u0022);",
+              "protected": "M:Microsoft.AspNetCore.Components.WebAssembly.Hosting.RootComponentMappingCollection.Add\u0060\u00601(System.String)"
+            },
+            "kind": "File",
+            "path": "Client\\Program.cs",
+            "snippet": "builder.RootComponents.Add\u003CApp\u003E(\u0022#app\u0022);",
+            "protectedSnippet": "M:Microsoft.AspNetCore.Components.WebAssembly.Hosting.RootComponentMappingCollection.Add\u0060\u00601(System.String)",
+            "label": "M:Microsoft.AspNetCore.Components.WebAssembly.Hosting.RootComponentMappingCollection.Add\u0060\u00601(System.String)",
+            "links": [
+              {
+                "title": "API documentation",
+                "url": "https://learn.microsoft.com/dotnet/api/microsoft.aspnetcore.components.webassembly.hosting.rootcomponentmappingcollection.add",
+                "isCustom": false
+              }
+            ],
+            "line": 5,
+            "column": 0
+          }
+        },
+        {
+          "incidentId": "7ef69195-58dd-41de-bbaf-cdf2f17e9cc6",
+          "ruleId": "Api.0002",
+          "description": "API is available in package Microsoft.AspNetCore.Components.WebAssembly, 8.0.6.",
+          "projectPath": "Client\\SoftwareDevelopmentCenter.Client.csproj",
+          "state": "Active",
+          "location": {
+            "snippetModel": {
+              "unrestricted": "var builder = WebAssemblyHostBuilder.CreateDefault(args);",
+              "protected": "T:Microsoft.AspNetCore.Components.WebAssembly.Hosting.WebAssemblyHostBuilder"
+            },
+            "kind": "File",
+            "path": "Client\\Program.cs",
+            "snippet": "var builder = WebAssemblyHostBuilder.CreateDefault(args);",
+            "protectedSnippet": "T:Microsoft.AspNetCore.Components.WebAssembly.Hosting.WebAssemblyHostBuilder",
+            "label": "T:Microsoft.AspNetCore.Components.WebAssembly.Hosting.WebAssemblyHostBuilder",
+            "links": [
+              {
+                "title": "API documentation",
+                "url": "https://learn.microsoft.com/dotnet/api/microsoft.aspnetcore.components.webassembly.hosting.webassemblyhostbuilder",
+                "isCustom": false
+              }
+            ],
+            "line": 4,
+            "column": 0
+          }
+        },
+        {
+          "incidentId": "41739949-0895-4588-9cbf-6b8061a22e36",
+          "ruleId": "Api.0002",
+          "description": "API is available in package Microsoft.AspNetCore.Components.WebAssembly, 8.0.6.",
+          "projectPath": "Client\\SoftwareDevelopmentCenter.Client.csproj",
+          "state": "Active",
+          "location": {
+            "snippetModel": {
+              "unrestricted": "builder.Services.AddScoped(sp =\u003E new HttpClient { BaseAddress = new Uri(builder.HostEnvironment.BaseAddress) });",
+              "protected": "P:Microsoft.AspNetCore.Components.WebAssembly.Hosting.IWebAssemblyHostEnvironment.BaseAddress"
+            },
+            "kind": "File",
+            "path": "Client\\Program.cs",
+            "snippet": "builder.Services.AddScoped(sp =\u003E new HttpClient { BaseAddress = new Uri(builder.HostEnvironment.BaseAddress) });",
+            "protectedSnippet": "P:Microsoft.AspNetCore.Components.WebAssembly.Hosting.IWebAssemblyHostEnvironment.BaseAddress",
+            "label": "P:Microsoft.AspNetCore.Components.WebAssembly.Hosting.IWebAssemblyHostEnvironment.BaseAddress",
+            "links": [
+              {
+                "title": "API documentation",
+                "url": "https://learn.microsoft.com/dotnet/api/microsoft.aspnetcore.components.webassembly.hosting.iwebassemblyhostenvironment.baseaddress",
+                "isCustom": false
+              }
+            ],
+            "line": 8,
+            "column": 0
+          }
+        },
+        {
+          "incidentId": "9e85d946-0f18-49e6-9cc1-b5aca37cfd4d",
+          "ruleId": "Api.0002",
+          "description": "API is available in package Microsoft.AspNetCore.Components.WebAssembly, 8.0.6.",
+          "projectPath": "Client\\SoftwareDevelopmentCenter.Client.csproj",
+          "state": "Active",
+          "location": {
+            "snippetModel": {
+              "unrestricted": "builder.RootComponents.Add\u003CHeadOutlet\u003E(\u0022head::after\u0022);",
+              "protected": "T:Microsoft.AspNetCore.Components.WebAssembly.Hosting.RootComponentMappingCollection"
+            },
+            "kind": "File",
+            "path": "Client\\Program.cs",
+            "snippet": "builder.RootComponents.Add\u003CHeadOutlet\u003E(\u0022head::after\u0022);",
+            "protectedSnippet": "T:Microsoft.AspNetCore.Components.WebAssembly.Hosting.RootComponentMappingCollection",
+            "label": "T:Microsoft.AspNetCore.Components.WebAssembly.Hosting.RootComponentMappingCollection",
+            "links": [
+              {
+                "title": "API documentation",
+                "url": "https://learn.microsoft.com/dotnet/api/microsoft.aspnetcore.components.webassembly.hosting.rootcomponentmappingcollection",
+                "isCustom": false
+              }
+            ],
+            "line": 6,
+            "column": 0
+          }
+        },
+        {
+          "incidentId": "875b233d-a9d2-4230-aaaf-b506ad5642a2",
+          "ruleId": "Api.0002",
+          "description": "API is available in package Microsoft.AspNetCore.Components.WebAssembly, 8.0.6.",
+          "projectPath": "Client\\SoftwareDevelopmentCenter.Client.csproj",
+          "state": "Active",
+          "location": {
+            "snippetModel": {
+              "unrestricted": "builder.RootComponents.Add\u003CApp\u003E(\u0022#app\u0022);",
+              "protected": "P:Microsoft.AspNetCore.Components.WebAssembly.Hosting.WebAssemblyHostBuilder.RootComponents"
+            },
+            "kind": "File",
+            "path": "Client\\Program.cs",
+            "snippet": "builder.RootComponents.Add\u003CApp\u003E(\u0022#app\u0022);",
+            "protectedSnippet": "P:Microsoft.AspNetCore.Components.WebAssembly.Hosting.WebAssemblyHostBuilder.RootComponents",
+            "label": "P:Microsoft.AspNetCore.Components.WebAssembly.Hosting.WebAssemblyHostBuilder.RootComponents",
+            "links": [
+              {
+                "title": "API documentation",
+                "url": "https://learn.microsoft.com/dotnet/api/microsoft.aspnetcore.components.webassembly.hosting.webassemblyhostbuilder.rootcomponents",
+                "isCustom": false
+              }
+            ],
+            "line": 5,
+            "column": 0
+          }
+        },
+        {
+          "incidentId": "deec8c32-04f9-48e7-890a-243677aa0463",
+          "ruleId": "Api.0002",
+          "description": "API is available in package Newtonsoft.Json, 13.0.3.",
+          "projectPath": "Client\\SoftwareDevelopmentCenter.Client.csproj",
+          "state": "Active",
+          "location": {
+            "snippetModel": {
+              "unrestricted": "__o = JsonConvert.SerializeObject(problem.Output);",
+              "protected": "T:Newtonsoft.Json.JsonConvert"
+            },
+            "kind": "File",
+            "path": "Client\\Components\\LeetCode\\LeetCodeComponents\\LeetCodeProblemSetTable.razor.-f8WNYiu6J7Hsjsi.ide.g.cs",
+            "snippet": "__o = JsonConvert.SerializeObject(problem.Output);",
+            "protectedSnippet": "T:Newtonsoft.Json.JsonConvert",
+            "label": "T:Newtonsoft.Json.JsonConvert",
+            "links": [
+              {
+                "title": "API documentation",
+                "url": "https://learn.microsoft.com/dotnet/api/newtonsoft.json.jsonconvert",
+                "isCustom": false
+              }
+            ],
+            "line": 157,
+            "column": 69
+          }
+        },
+        {
+          "incidentId": "77d3c24d-b54b-418c-8b10-bc640ef212db",
+          "ruleId": "Api.0002",
+          "description": "API is available in package Microsoft.AspNetCore.Components.WebAssembly, 8.0.6.",
+          "projectPath": "Client\\SoftwareDevelopmentCenter.Client.csproj",
+          "state": "Active",
+          "location": {
+            "snippetModel": {
+              "unrestricted": "builder.Services.AddScoped(sp =\u003E new HttpClient { BaseAddress = new Uri(builder.HostEnvironment.BaseAddress) });",
+              "protected": "T:Microsoft.AspNetCore.Components.WebAssembly.Hosting.IWebAssemblyHostEnvironment"
+            },
+            "kind": "File",
+            "path": "Client\\Program.cs",
+            "snippet": "builder.Services.AddScoped(sp =\u003E new HttpClient { BaseAddress = new Uri(builder.HostEnvironment.BaseAddress) });",
+            "protectedSnippet": "T:Microsoft.AspNetCore.Components.WebAssembly.Hosting.IWebAssemblyHostEnvironment",
+            "label": "T:Microsoft.AspNetCore.Components.WebAssembly.Hosting.IWebAssemblyHostEnvironment",
+            "links": [
+              {
+                "title": "API documentation",
+                "url": "https://learn.microsoft.com/dotnet/api/microsoft.aspnetcore.components.webassembly.hosting.iwebassemblyhostenvironment",
+                "isCustom": false
+              }
+            ],
+            "line": 8,
+            "column": 0
+          }
+        },
+        {
+          "incidentId": "54eb828c-de6c-43f0-86bc-04d4ad70f708",
+          "ruleId": "Api.0002",
+          "description": "API is available in package Microsoft.AspNetCore.Components.WebAssembly, 8.0.6.",
+          "projectPath": "Client\\SoftwareDevelopmentCenter.Client.csproj",
+          "state": "Active",
+          "location": {
+            "snippetModel": {
+              "unrestricted": "builder.RootComponents.Add\u003CHeadOutlet\u003E(\u0022head::after\u0022);",
+              "protected": "M:Microsoft.AspNetCore.Components.WebAssembly.Hosting.RootComponentMappingCollection.Add\u0060\u00601(System.String)"
+            },
+            "kind": "File",
+            "path": "Client\\Program.cs",
+            "snippet": "builder.RootComponents.Add\u003CHeadOutlet\u003E(\u0022head::after\u0022);",
+            "protectedSnippet": "M:Microsoft.AspNetCore.Components.WebAssembly.Hosting.RootComponentMappingCollection.Add\u0060\u00601(System.String)",
+            "label": "M:Microsoft.AspNetCore.Components.WebAssembly.Hosting.RootComponentMappingCollection.Add\u0060\u00601(System.String)",
+            "links": [
+              {
+                "title": "API documentation",
+                "url": "https://learn.microsoft.com/dotnet/api/microsoft.aspnetcore.components.webassembly.hosting.rootcomponentmappingcollection.add",
+                "isCustom": false
+              }
+            ],
+            "line": 6,
+            "column": 0
+          }
+        },
+        {
+          "incidentId": "0a7d87c5-0cfb-47a6-bd94-e77757f0b843",
+          "ruleId": "Api.0002",
+          "description": "API is available in package Newtonsoft.Json, 13.0.3.",
+          "projectPath": "Client\\SoftwareDevelopmentCenter.Client.csproj",
+          "state": "Active",
+          "location": {
+            "snippetModel": {
+              "unrestricted": "__o = JsonConvert.SerializeObject(problem.Input);",
+              "protected": "T:Newtonsoft.Json.JsonConvert"
+            },
+            "kind": "File",
+            "path": "Client\\Components\\LeetCode\\LeetCodeComponents\\LeetCodeProblemSetTable.razor.-f8WNYiu6J7Hsjsi.ide.g.cs",
+            "snippet": "__o = JsonConvert.SerializeObject(problem.Input);",
+            "protectedSnippet": "T:Newtonsoft.Json.JsonConvert",
+            "label": "T:Newtonsoft.Json.JsonConvert",
+            "links": [
+              {
+                "title": "API documentation",
+                "url": "https://learn.microsoft.com/dotnet/api/newtonsoft.json.jsonconvert",
+                "isCustom": false
+              }
+            ],
+            "line": 119,
+            "column": 15
+          }
+        },
+        {
+          "incidentId": "86ae8300-7733-404f-bf03-9751ac682499",
+          "ruleId": "Api.0002",
+          "description": "API is available in package Microsoft.AspNetCore.Components.WebAssembly, 8.0.6.",
+          "projectPath": "Client\\SoftwareDevelopmentCenter.Client.csproj",
+          "state": "Active",
+          "location": {
+            "snippetModel": {
+              "unrestricted": "await builder.Build().RunAsync();",
+              "protected": "M:Microsoft.AspNetCore.Components.WebAssembly.Hosting.WebAssemblyHostBuilder.Build"
+            },
+            "kind": "File",
+            "path": "Client\\Program.cs",
+            "snippet": "await builder.Build().RunAsync();",
+            "protectedSnippet": "M:Microsoft.AspNetCore.Components.WebAssembly.Hosting.WebAssemblyHostBuilder.Build",
+            "label": "M:Microsoft.AspNetCore.Components.WebAssembly.Hosting.WebAssemblyHostBuilder.Build",
+            "links": [
+              {
+                "title": "API documentation",
+                "url": "https://learn.microsoft.com/dotnet/api/microsoft.aspnetcore.components.webassembly.hosting.webassemblyhostbuilder.build",
+                "isCustom": false
+              }
+            ],
+            "line": 10,
+            "column": 0
+          }
+        },
+        {
+          "incidentId": "7e0525ce-2618-4158-9c74-d9c2b717a4ef",
+          "ruleId": "Api.0002",
+          "description": "API is available in package Microsoft.AspNetCore.Components.WebAssembly, 8.0.6.",
+          "projectPath": "Client\\SoftwareDevelopmentCenter.Client.csproj",
+          "state": "Active",
+          "location": {
+            "snippetModel": {
+              "unrestricted": "await builder.Build().RunAsync();",
+              "protected": "M:Microsoft.AspNetCore.Components.WebAssembly.Hosting.WebAssemblyHost.RunAsync"
+            },
+            "kind": "File",
+            "path": "Client\\Program.cs",
+            "snippet": "await builder.Build().RunAsync();",
+            "protectedSnippet": "M:Microsoft.AspNetCore.Components.WebAssembly.Hosting.WebAssemblyHost.RunAsync",
+            "label": "M:Microsoft.AspNetCore.Components.WebAssembly.Hosting.WebAssemblyHost.RunAsync",
+            "links": [
+              {
+                "title": "API documentation",
+                "url": "https://learn.microsoft.com/dotnet/api/microsoft.aspnetcore.components.webassembly.hosting.webassemblyhost.runasync",
+                "isCustom": false
+              }
+            ],
+            "line": 10,
+            "column": 0
+          }
+        },
+        {
+          "incidentId": "3ad8875e-f554-46e0-8dd4-b3d4182848cd",
+          "ruleId": "Api.0002",
+          "description": "API is available in package Newtonsoft.Json, 13.0.3.",
+          "projectPath": "Client\\SoftwareDevelopmentCenter.Client.csproj",
+          "state": "Active",
+          "location": {
+            "snippetModel": {
+              "unrestricted": "__o = JsonConvert.SerializeObject(problem.Output);",
+              "protected": "M:Newtonsoft.Json.JsonConvert.SerializeObject(System.Object)"
+            },
+            "kind": "File",
+            "path": "Client\\Components\\LeetCode\\LeetCodeComponents\\LeetCodeProblemSetTable.razor.-f8WNYiu6J7Hsjsi.ide.g.cs",
+            "snippet": "__o = JsonConvert.SerializeObject(problem.Output);",
+            "protectedSnippet": "M:Newtonsoft.Json.JsonConvert.SerializeObject(System.Object)",
+            "label": "M:Newtonsoft.Json.JsonConvert.SerializeObject(System.Object)",
+            "links": [
+              {
+                "title": "API documentation",
+                "url": "https://learn.microsoft.com/dotnet/api/newtonsoft.json.jsonconvert.serializeobject",
+                "isCustom": false
+              }
+            ],
+            "line": 157,
+            "column": 69
+          }
+        },
+        {
+          "incidentId": "7bf498b7-43e1-4bd3-97bd-ad2c2ea375ad",
+          "ruleId": "Api.0002",
+          "description": "API is available in package Newtonsoft.Json, 13.0.3.",
+          "projectPath": "Client\\SoftwareDevelopmentCenter.Client.csproj",
+          "state": "Active",
+          "location": {
+            "snippetModel": {
+              "unrestricted": "__o = JsonConvert.SerializeObject(problem.Input);",
+              "protected": "T:Newtonsoft.Json.JsonConvert"
+            },
+            "kind": "File",
+            "path": "Client\\Components\\LeetCode\\LeetCodeComponents\\LeetCodeProblemSetTable.razor.-f8WNYiu6J7Hsjsi.ide.g.cs",
+            "snippet": "__o = JsonConvert.SerializeObject(problem.Input);",
+            "protectedSnippet": "T:Newtonsoft.Json.JsonConvert",
+            "label": "T:Newtonsoft.Json.JsonConvert",
+            "links": [
+              {
+                "title": "API documentation",
+                "url": "https://learn.microsoft.com/dotnet/api/newtonsoft.json.jsonconvert",
+                "isCustom": false
+              }
+            ],
+            "line": 150,
+            "column": 15
+          }
+        },
+        {
+          "incidentId": "2240d39a-964d-4f51-a4ff-e40d8517b23d",
+          "ruleId": "Api.0002",
+          "description": "API is available in package Microsoft.AspNetCore.Components.WebAssembly, 8.0.6.",
+          "projectPath": "Client\\SoftwareDevelopmentCenter.Client.csproj",
+          "state": "Active",
+          "location": {
+            "snippetModel": {
+              "unrestricted": "await builder.Build().RunAsync();",
+              "protected": "T:Microsoft.AspNetCore.Components.WebAssembly.Hosting.WebAssemblyHost"
+            },
+            "kind": "File",
+            "path": "Client\\Program.cs",
+            "snippet": "await builder.Build().RunAsync();",
+            "protectedSnippet": "T:Microsoft.AspNetCore.Components.WebAssembly.Hosting.WebAssemblyHost",
+            "label": "T:Microsoft.AspNetCore.Components.WebAssembly.Hosting.WebAssemblyHost",
+            "links": [
+              {
+                "title": "API documentation",
+                "url": "https://learn.microsoft.com/dotnet/api/microsoft.aspnetcore.components.webassembly.hosting.webassemblyhost",
+                "isCustom": false
+              }
+            ],
+            "line": 10,
+            "column": 0
+          }
+        },
+        {
+          "incidentId": "9e65dfaa-b926-4796-a8d1-dac05a77e772",
+          "ruleId": "Api.0002",
+          "description": "API is available in package Newtonsoft.Json, 13.0.3.",
+          "projectPath": "Client\\SoftwareDevelopmentCenter.Client.csproj",
+          "state": "Active",
+          "location": {
+            "snippetModel": {
+              "unrestricted": "__o = JsonConvert.SerializeObject(problem.Output);",
+              "protected": "M:Newtonsoft.Json.JsonConvert.SerializeObject(System.Object)"
+            },
+            "kind": "File",
+            "path": "Client\\Components\\LeetCode\\LeetCodeComponents\\LeetCodeProblemSetTable.razor.-f8WNYiu6J7Hsjsi.ide.g.cs",
+            "snippet": "__o = JsonConvert.SerializeObject(problem.Output);",
+            "protectedSnippet": "M:Newtonsoft.Json.JsonConvert.SerializeObject(System.Object)",
+            "label": "M:Newtonsoft.Json.JsonConvert.SerializeObject(System.Object)",
+            "links": [
+              {
+                "title": "API documentation",
+                "url": "https://learn.microsoft.com/dotnet/api/newtonsoft.json.jsonconvert.serializeobject",
+                "isCustom": false
+              }
+            ],
+            "line": 126,
+            "column": 15
+          }
+        },
+        {
+          "incidentId": "34a78464-8cd0-4866-b677-9a6031468a4b",
+          "ruleId": "Api.0002",
+          "description": "API is available in package Newtonsoft.Json, 13.0.3.",
+          "projectPath": "Client\\SoftwareDevelopmentCenter.Client.csproj",
+          "state": "Active",
+          "location": {
+            "snippetModel": {
+              "unrestricted": "__o = JsonConvert.SerializeObject(problem.Input);",
+              "protected": "M:Newtonsoft.Json.JsonConvert.SerializeObject(System.Object)"
+            },
+            "kind": "File",
+            "path": "Client\\Components\\LeetCode\\LeetCodeComponents\\LeetCodeProblemSetTable.razor.-f8WNYiu6J7Hsjsi.ide.g.cs",
+            "snippet": "__o = JsonConvert.SerializeObject(problem.Input);",
+            "protectedSnippet": "M:Newtonsoft.Json.JsonConvert.SerializeObject(System.Object)",
+            "label": "M:Newtonsoft.Json.JsonConvert.SerializeObject(System.Object)",
+            "links": [
+              {
+                "title": "API documentation",
+                "url": "https://learn.microsoft.com/dotnet/api/newtonsoft.json.jsonconvert.serializeobject",
+                "isCustom": false
+              }
+            ],
+            "line": 150,
+            "column": 15
+          }
+        },
+        {
+          "incidentId": "da40434b-cbbe-4d3f-b394-b3bf7c12cb20",
+          "ruleId": "Api.0002",
+          "description": "API is available in package Newtonsoft.Json, 13.0.3.",
+          "projectPath": "Client\\SoftwareDevelopmentCenter.Client.csproj",
+          "state": "Active",
+          "location": {
+            "snippetModel": {
+              "unrestricted": "__o = JsonConvert.SerializeObject(problem.Output);",
+              "protected": "T:Newtonsoft.Json.JsonConvert"
+            },
+            "kind": "File",
+            "path": "Client\\Components\\LeetCode\\LeetCodeComponents\\LeetCodeProblemSetTable.razor.-f8WNYiu6J7Hsjsi.ide.g.cs",
+            "snippet": "__o = JsonConvert.SerializeObject(problem.Output);",
+            "protectedSnippet": "T:Newtonsoft.Json.JsonConvert",
+            "label": "T:Newtonsoft.Json.JsonConvert",
+            "links": [
+              {
+                "title": "API documentation",
+                "url": "https://learn.microsoft.com/dotnet/api/newtonsoft.json.jsonconvert",
+                "isCustom": false
+              }
+            ],
+            "line": 126,
+            "column": 15
+          }
+        }
+      ]
+    },
+    {
+      "path": "Server\\SoftwareDevelopmentCenter.Server.csproj",
+      "startingProject": true,
+      "issues": 3,
+      "storyPoints": 6,
+      "ruleInstances": [
+        {
+          "incidentId": "644ee7de-73ad-4c71-a654-d4d68ee586c9",
+          "ruleId": "NuGet.0002",
+          "projectPath": "Server\\SoftwareDevelopmentCenter.Server.csproj",
+          "state": "Active",
+          "location": {
+            "snippetModel": {
+              "unrestricted": "Microsoft.AspNetCore.Components.WebAssembly.Server, 6.0.33\n\nRecommendation:\n\nMicrosoft.AspNetCore.Components.WebAssembly.Server 8.0.10",
+              "protected": "Microsoft.AspNetCore.Components.WebAssembly.Server, 6.0.33\n\nRecommendation:\n\nMicrosoft.AspNetCore.Components.WebAssembly.Server 8.0.10"
+            },
+            "kind": "File",
+            "path": "Server\\SoftwareDevelopmentCenter.Server.csproj",
+            "snippet": "Microsoft.AspNetCore.Components.WebAssembly.Server, 6.0.33\n\nRecommendation:\n\nMicrosoft.AspNetCore.Components.WebAssembly.Server 8.0.10",
+            "protectedSnippet": "Microsoft.AspNetCore.Components.WebAssembly.Server, 6.0.33\n\nRecommendation:\n\nMicrosoft.AspNetCore.Components.WebAssembly.Server 8.0.10",
+            "label": "Microsoft.AspNetCore.Components.WebAssembly.Server 6.0.33"
+          }
+        },
+        {
+          "incidentId": "62a8579b-3fbf-4b3e-b6eb-832253a9c0e2",
+          "ruleId": "Project.0002",
+          "projectPath": "Server\\SoftwareDevelopmentCenter.Server.csproj",
+          "state": "Active",
+          "location": {
+            "snippetModel": {
+              "unrestricted": "Current: net6.0\nNew: net8.0",
+              "protected": "Current: net6.0\nNew: net8.0"
+            },
+            "kind": "File",
+            "path": "Server\\SoftwareDevelopmentCenter.Server.csproj",
+            "snippet": "Current: net6.0\nNew: net8.0",
+            "protectedSnippet": "Current: net6.0\nNew: net8.0"
+          }
+        },
+        {
+          "incidentId": "893b7386-67f8-463d-9fa9-e41afb7fef62",
+          "ruleId": "Api.0002",
+          "description": "API is available in package Microsoft.AspNetCore.Components.WebAssembly.Server, 8.0.6.",
+          "projectPath": "Server\\SoftwareDevelopmentCenter.Server.csproj",
+          "state": "Active",
+          "location": {
+            "snippetModel": {
+              "unrestricted": "app.UseBlazorFrameworkFiles();",
+              "protected": "T:Microsoft.AspNetCore.Builder.ComponentsWebAssemblyApplicationBuilderExtensions"
+            },
+            "kind": "File",
+            "path": "Server\\Program.cs",
+            "snippet": "app.UseBlazorFrameworkFiles();",
+            "protectedSnippet": "T:Microsoft.AspNetCore.Builder.ComponentsWebAssemblyApplicationBuilderExtensions",
+            "label": "T:Microsoft.AspNetCore.Builder.ComponentsWebAssemblyApplicationBuilderExtensions",
+            "links": [
+              {
+                "title": "API documentation",
+                "url": "https://learn.microsoft.com/dotnet/api/microsoft.aspnetcore.builder.componentswebassemblyapplicationbuilderextensions",
+                "isCustom": false
+              }
+            ],
+            "line": 25,
+            "column": 0
+          }
+        },
+        {
+          "incidentId": "3c4606b5-8c75-4a40-af5b-ee84fdc2ccd7",
+          "ruleId": "Api.0002",
+          "description": "API is available in package Microsoft.AspNetCore.Components.WebAssembly.Server, 8.0.6.",
+          "projectPath": "Server\\SoftwareDevelopmentCenter.Server.csproj",
+          "state": "Active",
+          "location": {
+            "snippetModel": {
+              "unrestricted": "app.UseWebAssemblyDebugging();",
+              "protected": "M:Microsoft.AspNetCore.Builder.WebAssemblyNetDebugProxyAppBuilderExtensions.UseWebAssemblyDebugging(Microsoft.AspNetCore.Builder.IApplicationBuilder)"
+            },
+            "kind": "File",
+            "path": "Server\\Program.cs",
+            "snippet": "app.UseWebAssemblyDebugging();",
+            "protectedSnippet": "M:Microsoft.AspNetCore.Builder.WebAssemblyNetDebugProxyAppBuilderExtensions.UseWebAssemblyDebugging(Microsoft.AspNetCore.Builder.IApplicationBuilder)",
+            "label": "M:Microsoft.AspNetCore.Builder.WebAssemblyNetDebugProxyAppBuilderExtensions.UseWebAssemblyDebugging(Microsoft.AspNetCore.Builder.IApplicationBuilder)",
+            "links": [
+              {
+                "title": "API documentation",
+                "url": "https://learn.microsoft.com/dotnet/api/microsoft.aspnetcore.builder.webassemblynetdebugproxyappbuilderextensions.usewebassemblydebugging",
+                "isCustom": false
+              }
+            ],
+            "line": 14,
+            "column": 4
+          }
+        },
+        {
+          "incidentId": "841b62b9-e24d-4122-88f5-dba61a0d6d0f",
+          "ruleId": "Api.0002",
+          "description": "API is available in package Microsoft.AspNetCore.Components.WebAssembly.Server, 8.0.6.",
+          "projectPath": "Server\\SoftwareDevelopmentCenter.Server.csproj",
+          "state": "Active",
+          "location": {
+            "snippetModel": {
+              "unrestricted": "app.UseWebAssemblyDebugging();",
+              "protected": "T:Microsoft.AspNetCore.Builder.WebAssemblyNetDebugProxyAppBuilderExtensions"
+            },
+            "kind": "File",
+            "path": "Server\\Program.cs",
+            "snippet": "app.UseWebAssemblyDebugging();",
+            "protectedSnippet": "T:Microsoft.AspNetCore.Builder.WebAssemblyNetDebugProxyAppBuilderExtensions",
+            "label": "T:Microsoft.AspNetCore.Builder.WebAssemblyNetDebugProxyAppBuilderExtensions",
+            "links": [
+              {
+                "title": "API documentation",
+                "url": "https://learn.microsoft.com/dotnet/api/microsoft.aspnetcore.builder.webassemblynetdebugproxyappbuilderextensions",
+                "isCustom": false
+              }
+            ],
+            "line": 14,
+            "column": 4
+          }
+        },
+        {
+          "incidentId": "53d4a157-8c23-4dc3-b251-13897c6c84c7",
+          "ruleId": "Api.0002",
+          "description": "API is available in package Microsoft.AspNetCore.Components.WebAssembly.Server, 8.0.6.",
+          "projectPath": "Server\\SoftwareDevelopmentCenter.Server.csproj",
+          "state": "Active",
+          "location": {
+            "snippetModel": {
+              "unrestricted": "app.UseBlazorFrameworkFiles();",
+              "protected": "M:Microsoft.AspNetCore.Builder.ComponentsWebAssemblyApplicationBuilderExtensions.UseBlazorFrameworkFiles(Microsoft.AspNetCore.Builder.IApplicationBuilder)"
+            },
+            "kind": "File",
+            "path": "Server\\Program.cs",
+            "snippet": "app.UseBlazorFrameworkFiles();",
+            "protectedSnippet": "M:Microsoft.AspNetCore.Builder.ComponentsWebAssemblyApplicationBuilderExtensions.UseBlazorFrameworkFiles(Microsoft.AspNetCore.Builder.IApplicationBuilder)",
+            "label": "M:Microsoft.AspNetCore.Builder.ComponentsWebAssemblyApplicationBuilderExtensions.UseBlazorFrameworkFiles(Microsoft.AspNetCore.Builder.IApplicationBuilder)",
+            "links": [
+              {
+                "title": "API documentation",
+                "url": "https://learn.microsoft.com/dotnet/api/microsoft.aspnetcore.builder.componentswebassemblyapplicationbuilderextensions.useblazorframeworkfiles",
+                "isCustom": false
+              }
+            ],
+            "line": 25,
+            "column": 0
+          }
+        }
+      ]
+    },
+    {
+      "path": "Shared\\SoftwareDevelopmentCenter.Shared.csproj",
+      "startingProject": true,
+      "issues": 1,
+      "storyPoints": 1,
+      "ruleInstances": [
+        {
+          "incidentId": "990e9196-8bba-4a8b-a81b-b2669657276a",
+          "ruleId": "Project.0002",
+          "projectPath": "Shared\\SoftwareDevelopmentCenter.Shared.csproj",
+          "state": "Active",
+          "location": {
+            "snippetModel": {
+              "unrestricted": "Current: net6.0\nNew: net8.0",
+              "protected": "Current: net6.0\nNew: net8.0"
+            },
+            "kind": "File",
+            "path": "Shared\\SoftwareDevelopmentCenter.Shared.csproj",
+            "snippet": "Current: net6.0\nNew: net8.0",
+            "protectedSnippet": "Current: net6.0\nNew: net8.0"
+          }
+        }
+      ]
+    }
+  ],
+  "rules": {
+    "Project.0002": {
+      "id": "Project.0002",
+      "description": "Project\u0027s target framework(s) needs to be changed to the new target framework that you selected for this upgrade.\n\nDuring upgrade target framework will be adjusted to corresponding platform when applicable. In some cases project would result in multiple target frameworks after the upgrade if it was using features that now have their own platforms in moderrn .NET frameworks (windows, iOS, Android etc).",
+      "label": "Project\u0027s target framework(s) needs to be changed",
+      "severity": "Mandatory",
+      "effort": 1,
+      "links": [
+        {
+          "title": "Overview of porting from .NET Framework to .NET",
+          "url": "https://go.microsoft.com/fwlink/?linkid=2265227",
+          "isCustom": false
+        },
+        {
+          "title": ".NET project SDKs",
+          "url": "https://go.microsoft.com/fwlink/?linkid=2265226",
+          "isCustom": false
+        }
+      ]
+    },
+    "NuGet.0002": {
+      "id": "NuGet.0002",
+      "description": "NuGet package upgrade is recommended for selected target framework.\n\nStandard .NET packages are recommended to have versions matching version of .NET that project targets.\n\nSome other packages also are known to work better for selected target frameworks.",
+      "label": "NuGet package upgrade is recommended",
+      "severity": "Potential",
+      "effort": 1,
+      "links": [
+        {
+          "url": "https://go.microsoft.com/fwlink/?linkid=2262530",
+          "isCustom": false
+        }
+      ]
+    },
+    "Api.0002": {
+      "id": "Api.0002",
+      "description": "Some API that lived in older versions of .NET frameworks were moved to standalone NuGet packages that could be added to projects explicitly.",
+      "label": "API available in NuGet package",
+      "severity": "Potential",
+      "effort": 1,
+      "links": [
+        {
+          "title": "Breaking changes in .NET",
+          "url": "https://go.microsoft.com/fwlink/?linkid=2262679",
+          "isCustom": false
+        }
+      ]
+    }
+  }
+}

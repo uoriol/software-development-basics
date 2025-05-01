@@ -1,0 +1,94 @@
+﻿@page "/security/http-logger-security"
+@using Newtonsoft.Json
+@using SoftwareDevelopmentCenter.Shared.Authorization.Classes
+@using SoftwareDevelopmentCenter.Shared.Logger.Classes
+@using System.Net.Http.Headers
+@using System.Net
+@inject HttpClient _http
+@inject CustomAuthenticationStateProvider authProvider
+
+<div class="div-app" style="text-align: center">
+    <p>Run different HTTP request to check the output:</p>
+    <button class="button-app" @onclick="PublicRequest">Public request</button>
+    <button class="button-app" @onclick="UserRequest">Authenticated User request</button>
+    <button class="button-app" @onclick="AdminRequest">Admin user request</button>
+</div>
+
+@if(logs.Count() == 0)
+{
+    <p>Make a request to initialize the logs</p>
+}
+else
+{
+    <div class="div-app">
+        <table class="app-table">
+            <tr>
+                <th style="width: 25%">Headers</th>
+                <th style="width: 25%">Url</th>
+                <th style="width: 25%">Status Code</th>
+                <th style="width: 25%">Response</th>
+            </tr>
+            @foreach (var log in logs)
+            {
+                <tr>
+                    <td style="font-size: 12px">@log.Headers</td>
+                    <td>@log.Url</td>
+                    <td style="color: @GetStatusColor(log.StatusCode)">@log.StatusCode</td>
+                    <td>@log.Response</td>
+                </tr>
+            }
+        </table>
+    </div>
+}
+
+@code {
+    private List<HttpRequestsLog> logs = new List<HttpRequestsLog>();
+
+    private async Task PublicRequest()
+    {
+        // HTTP request
+        await AddRequest("Request/GetPublicData");
+    }
+
+    private async Task UserRequest()
+    {
+        // HTTP request
+        await AddRequest("Request/GetPrivateData");
+    }
+
+    private async Task AdminRequest()
+    {
+        // HTTP request
+        await AddRequest("api/SecureData/GetAdminData");
+
+    }
+
+    private async Task AddRequest(string url)
+    {
+        // _http.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", await authProvider.GetToken());
+        HttpResponseMessage httpResponse = await _http.GetAsync(url);
+        logs.Add(new HttpRequestsLog
+        {
+            Headers = JsonConvert.SerializeObject(httpResponse.Headers),
+            Url = _http.BaseAddress?.AbsolutePath + url,
+            StatusCode = httpResponse.StatusCode,
+            Response = await httpResponse.Content.ReadAsStringAsync()
+        });
+    }
+
+    private string GetStatusColor(HttpStatusCode statusCode)
+    {
+        switch (statusCode)
+        {
+            case HttpStatusCode.OK:
+            case HttpStatusCode.Accepted:
+                return "lightgreen";
+            case HttpStatusCode.BadRequest:
+            case HttpStatusCode.Unauthorized:
+            case HttpStatusCode.Forbidden:
+                return "#ed8282";
+            default:
+                return "white";
+        }
+    }
+}

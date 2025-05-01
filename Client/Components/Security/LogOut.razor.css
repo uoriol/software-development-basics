@@ -1,0 +1,22 @@
+﻿.dropdown {
+    position: absolute;
+    background-color: white;
+    border: 1px solid #ddd;
+    padding: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    background: black;
+    border: 1px solid grey;
+    width: 110px;
+    text-align: center;
+}
+
+
+.dropdown-ul-li {
+    padding: 8px;
+    cursor: pointer;
+}
+
+    .dropdown-ul-li:hover {
+        background-color: #4c515c;
+        border: 1px solid darkgrey;
+    }

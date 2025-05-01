@@ -1,0 +1,20 @@
+﻿@using SoftwareDevelopmentCenter.Client.Components.Display.Buttons
+
+<div class="main-navigation-div">
+    <h3 class="main-navigation-header">@Title</h3>
+    <p class="main-navigation-body">@Explanation</p>
+    
+    <CircleButton NavigationUrl="@NavigationUrl"></CircleButton>
+</div>
+
+@code {
+    [Parameter]
+    public string Title { get; set; } = string.Empty;
+
+    [Parameter]
+    public string Explanation { get; set; } = string.Empty;
+
+    [Parameter]
+    public string NavigationUrl { get; set; } = string.Empty;
+
+}
